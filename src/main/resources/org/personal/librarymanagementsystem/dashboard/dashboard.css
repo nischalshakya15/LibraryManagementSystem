@@ -1,0 +1,58 @@
+.root-pane {
+    -fx-background-color: #f4f6f8;
+}
+
+.nav-label {
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 8;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-pref-width: 200;
+    -fx-graphic-text-gap: 10;
+}
+
+.nav-label .ikonli-font-icon {
+    -fx-icon-size: 20;
+}
+
+.books-label {
+    -fx-background-color: #3B82F6;
+}
+
+.students-label {
+    -fx-background-color: #10B981;
+}
+
+.borrowed-label {
+    -fx-background-color: #F59E0B;
+}
+
+.books-label:hover {
+    -fx-background-color: #2563EB;
+}
+
+.students-label:hover {
+    -fx-background-color: #059669;
+}
+
+.borrowed-label:hover {
+    -fx-background-color: #D97706;
+}
+
+.users-label {
+    -fx-background-color: #8B5CF6;
+}
+
+.logout-label {
+    -fx-background-color: #EF4444;
+}
+
+.users-label:hover {
+    -fx-background-color: #7C3AED;
+}
+
+.logout-label:hover {
+    -fx-background-color: #DC2626;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.personal.librarymanagementsystem.controller.LoginController"
+           stylesheets="@login.css"
+           styleClass="root">
+
+    <VBox spacing="40"
+          alignment="CENTER"
+          maxWidth="800"
+          maxHeight="500"
+          styleClass="login-card">
+
+        <padding>
+            <Insets top="20" right="35" bottom="35" left="35"/>
+        </padding>
+
+        <Label text="Book Management System"
+               styleClass="title"/>
+
+        <Label text="Sign in to continue"
+               styleClass="subtitle"/>
+
+        <TextField fx:id="usernameTextField"
+                   promptText="Username"
+                   text="admin"
+                   styleClass="input-field"/>
+
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       text="admin"
+                       styleClass="input-field"/>
+
+        <Label fx:id="errorLabel"
+               maxWidth="Infinity"
+               alignment="BASELINE_LEFT"
+               visible="false"
+               managed="false"
+               styleClass="error-text"/>
+
+        <Button text="Login"
+                onAction="#onLoginIn"
+                styleClass="login-button"/>
+    </VBox>
+
+</StackPane>

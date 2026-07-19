@@ -1,0 +1,160 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.personal.librarymanagementsystem.controller.BookController"
+            stylesheets=" @../css/base.css, @books.css"
+            styleClass="root-pane" maxHeight="Infinity" maxWidth="Infinity">
+    <padding>
+        <Insets right="10" top="5"/>
+    </padding>
+    <top>
+        <HBox spacing="10" styleClass="top-bar, form-grid">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TextField fx:id="searchTextField"
+                       promptText="Search books by name, author..."
+                       HBox.hgrow="ALWAYS"
+                       styleClass="search-input"
+                       onKeyReleased="#search"/>
+        </HBox>
+    </top>
+    <left>
+        <HBox>
+            <padding>
+                <Insets right="10" top="10"/>
+            </padding>
+            <GridPane hgap="40" vgap="30" styleClass="form-grid">
+                <Label text="Name"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"
+                       styleClass="form-label"/>
+                <TextField fx:id="nameTextFiled"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"
+                           styleClass="form-input"/>
+
+                <Label text="Author"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"
+                       styleClass="form-label"/>
+                <TextField fx:id="authorTextField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"
+                           styleClass="form-input"/>
+
+                <Label text="Publication"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"
+                       styleClass="form-label"/>
+                <TextField fx:id="publicationTextField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"
+                           styleClass="form-input"/>
+
+                <Label text="Genre"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"
+                       styleClass="form-label"/>
+                <TextField fx:id="genreTextField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"
+                           styleClass="form-input"/>
+
+                <Label text="Year"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="4"
+                       styleClass="form-label"/>
+                <TextField fx:id="yearTextField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="4"
+                           styleClass="form-input"/>
+
+                <Label text="Price"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"
+                       styleClass="form-label"/>
+                <TextField fx:id="priceTextField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="5"
+                           styleClass="form-input"/>
+
+                <Button fx:id="addButton"
+                        text="Add"
+                        GridPane.rowIndex="6"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-add"
+                        onAction="#save">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-plus"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="editOrUpdateButton"
+                        text="Edit"
+                        GridPane.rowIndex="7"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-update"
+                        onAction="#editOrUpdate">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-pen"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="deleteButton"
+                        text="Delete"
+                        GridPane.rowIndex="8"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-delete"
+                        onAction="#remove">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-trash"/>
+                    </graphic>
+                </Button>
+
+                <Button text="Clear"
+                        GridPane.rowIndex="9"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-clear"
+                        onAction="#defaultInitialization">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-eraser"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="exportToCsvButton"
+                        text="Export To Csv"
+                        GridPane.rowIndex="10"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-export-to-csv"
+                        onAction="#exportToCsv">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-file-csv"/>
+                    </graphic>
+                </Button>
+            </GridPane>
+        </HBox>
+    </left>
+    <center>
+        <VBox>
+            <padding>
+                <Insets top="10"/>
+            </padding>
+            <TableView fx:id="bookTable" VBox.vgrow="ALWAYS" maxHeight="Infinity" maxWidth="Infinity">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID"/>
+                    <TableColumn fx:id="nameColumn" text="Name"/>
+                    <TableColumn fx:id="authorColumn" text="Author"/>
+                    <TableColumn fx:id="publicationColumn" text="Publication"/>
+                    <TableColumn fx:id="genreColumn" text="Genre"/>
+                    <TableColumn fx:id="yearColumn" text="Year"/>
+                    <TableColumn fx:id="priceColumn" text="Price"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,123 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.personal.librarymanagementsystem.controller.UserController"
+            stylesheets=" @../css/base.css"
+            styleClass="root-pane" maxHeight="Infinity" maxWidth="Infinity">
+    <padding>
+        <Insets right="10" top="5"/>
+    </padding>
+    <top>
+        <HBox spacing="10" styleClass="top-bar, form-grid">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TextField fx:id="searchTextField"
+                       promptText="Search users by username, role"
+                       HBox.hgrow="ALWAYS"
+                       styleClass="search-input"
+                       onKeyReleased="#search"/>
+        </HBox>
+    </top>
+    <left>
+        <HBox>
+            <padding>
+                <Insets right="10" top="10"/>
+            </padding>
+            <GridPane hgap="40" vgap="30" styleClass="form-grid">
+                <Label text="Username"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"
+                       styleClass="form-label"/>
+                <TextField fx:id="usernameTextField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"
+                           styleClass="form-input"/>
+
+                <Label text="Password"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"
+                       styleClass="form-label"/>
+                <PasswordField fx:id="passwordTextField"
+                               GridPane.columnIndex="1"
+                               GridPane.rowIndex="1"
+                               styleClass="form-input"/>
+
+                <Label text="Roles"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"
+                       styleClass="form-label"/>
+                <ComboBox fx:id="roleComboBox"
+                          promptText="Select Role"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="2"
+                          styleClass="form-input"/>
+
+
+                <Button fx:id="addButton"
+                        text="Add"
+                        GridPane.rowIndex="3"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-add"
+                        onAction="#save">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-plus"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="editOrUpdateButton"
+                        text="Edit"
+                        GridPane.rowIndex="4"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-update"
+                        onAction="#editOrUpdate">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-pen"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="deleteButton"
+                        text="Delete"
+                        GridPane.rowIndex="5"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-delete"
+                        onAction="#remove">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-trash"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="clearButton"
+                        text="Clear"
+                        GridPane.rowIndex="6"
+                        GridPane.columnSpan="2"
+                        styleClass="btn,btn-clear"
+                        onAction="#defaultInitialization">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-eraser"/>
+                    </graphic>
+                </Button>
+
+            </GridPane>
+        </HBox>
+    </left>
+    <center>
+        <VBox>
+            <padding>
+                <Insets top="10"/>
+            </padding>
+            <TableView fx:id="userTable" VBox.vgrow="ALWAYS" maxHeight="Infinity" maxWidth="Infinity">
+                <columns>
+                    <TableColumn fx:id="idColumn" visible="false"/>
+                    <TableColumn fx:id="usernameColumn" text="Username"/>
+                    <TableColumn fx:id="passwordColumn" text="Password"/>
+                    <TableColumn fx:id="roleColumn" text="Role"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
